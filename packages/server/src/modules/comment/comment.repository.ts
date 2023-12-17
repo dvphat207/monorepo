@@ -31,7 +31,7 @@ export class CommentRepository {
     }
 
     if (query?.email) {
-      filter.email = { $regex: escapeRegex(query.body), $options: 'i' };
+      filter.email = { $regex: escapeRegex(query.email), $options: 'i' };
     }
 
     return filter;
