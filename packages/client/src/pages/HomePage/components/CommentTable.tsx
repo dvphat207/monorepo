@@ -82,13 +82,20 @@ export default function CommentTable() {
       case 'name':
       case 'email':
       case 'body':
-        setFilters({ [key]: event.target.value.trim() });
+        setFilters({ [key]: event.target.value });
         break;
     }
   };
 
   const fetchComments = () => {
-    const params: SearchCommentRequest = { ...filters, page: paging.currentPage, limit: paging.rowsPerPage };
+    const params: SearchCommentRequest = {
+      postId: filters.postId,
+      name: filters.name.trim(),
+      email: filters.email.trim(),
+      body: filters.body.trim(),
+      page: paging.currentPage,
+      limit: paging.rowsPerPage
+    };
 
     axios
       .get(route.comments.search, { params })
@@ -126,6 +133,7 @@ export default function CommentTable() {
             fullWidth={true}
             id="postId"
             label="Enter Post ID"
+            value={filters.postId}
             type="search"
             onChange={(evt) => handleSearch(evt, 'postId')}
           />
@@ -135,6 +143,7 @@ export default function CommentTable() {
             fullWidth={true}
             id="name"
             label="Enter Name"
+            value={filters.name}
             type="search"
             onChange={(evt) => handleSearch(evt, 'name')}
           />
@@ -145,6 +154,7 @@ export default function CommentTable() {
             id="email"
             label="Enter Email"
             type="search"
+            value={filters.email}
             onChange={(evt) => handleSearch(evt, 'email')}
           />
         </Grid>
@@ -154,6 +164,7 @@ export default function CommentTable() {
             id="body"
             label="Enter Body"
             type="search"
+            value={filters.body}
             onChange={(evt) => handleSearch(evt, 'body')}
           />
         </Grid>

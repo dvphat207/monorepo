@@ -37,6 +37,6 @@ docker-compose ps
 ```
 You should see a list of running containers.
 
-### 6. Access your application:
+### 6. Access to the application:
 
 Please wait for the application to start, and once it's ready, open your web browser and navigate to `http://localhost:3000`.

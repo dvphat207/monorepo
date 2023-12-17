@@ -36,7 +36,7 @@ export interface CommentTableColumn {
 export type CommentTableFilterKey = keyof CommentTableFilter;
 export interface CommentTableFilter {
   postId?: number;
-  name?: string;
-  email?: string;
-  body?: string;
+  name: string;
+  email: string;
+  body: string;
 }
