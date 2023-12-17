@@ -1,6 +1,6 @@
-# How to Run Docker Compose
+# How to Run the Monorepo Project
 
-This guide will walk you through the steps to run Docker Compose for your project.
+This guide will walk you through the steps to run Docker Compose.
 
 ## Prerequisites
 
@@ -22,16 +22,10 @@ git clone https://github.com/dvphat207/monorepo.git
 cd <path_to_project>
 ```
 
-### 3. Build the Docker images:
-
-```bash
-docker-compose build
-```
-
 ### 4. Start the containers:
 
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 The `-d` flag runs the containers in detached mode.
