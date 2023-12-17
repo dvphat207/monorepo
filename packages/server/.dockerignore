@@ -1,0 +1,12 @@
+.dockerignore
+.gitignore
+.editorconfig
+.prettierrc
+.eslintrc.js
+
+Dockerfile
+Dockerfile.dev
+
+README.md
+node_modules
+build

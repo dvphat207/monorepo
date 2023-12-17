@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "lerna": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "start": "lerna run start",
+    "diff": "lerna diff"
+  }
+}
