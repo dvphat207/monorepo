@@ -1,5 +1,16 @@
 import { FileInterceptor } from '@nestjs/platform-express';
-import { Controller, Get, Post, Query, UploadedFile, UseInterceptors, UsePipes, ValidationPipe } from '@nestjs/common';
+import {
+  Controller,
+  FileTypeValidator,
+  Get,
+  ParseFilePipe,
+  Post,
+  Query,
+  UploadedFile,
+  UseInterceptors,
+  UsePipes,
+  ValidationPipe
+} from '@nestjs/common';
 
 import { CommentService } from './comment.service';
 import { SearchCommentRequest, SearchCommentResponse, UploadCommentResponse } from './comment.dto';
@@ -16,7 +27,14 @@ export class CommentController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
-  public async upload(@UploadedFile() file: Express.Multer.File): Promise<UploadCommentResponse> {
+  public async upload(
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [new FileTypeValidator({ fileType: 'text/csv' })]
+      })
+    )
+    file: Express.Multer.File
+  ): Promise<UploadCommentResponse> {
     return this.service.upload(file);
   }
 }
