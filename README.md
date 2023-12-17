@@ -19,7 +19,7 @@ git clone https://github.com/dvphat207/monorepo.git
 ### 2. Navigate to the project directory:
 
 ```bash
-cd <path_to_project>
+cd monorepo
 ```
 
 ### 4. Start the containers:
